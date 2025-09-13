@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: real-estate-price-prediction
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --chdir Server server:app
+    envVars:
+      - key: PYTHONPATH
+        value: ./Server
